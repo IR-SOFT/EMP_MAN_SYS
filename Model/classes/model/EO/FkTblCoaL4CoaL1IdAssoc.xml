@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkTblCoaL4CoaL1IdAssoc"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="TblCoaL1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EO.TblCoaL1">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TblCoaL1"/>
+      <Attr Name="_foreignKey" Value="model.EO.TblCoaL1.PkCoaL1Id"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblCoaL1.CoaL1Id"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="TblCoaL4"
+    Cardinality="-1"
+    Owner="model.EO.TblCoaL4">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TblCoaL4"/>
+      <Attr Name="_foreignKey" Value="model.EO.TblCoaL4.FkTblCoaL4CoaL1Id"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblCoaL4.CoaL1Id"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

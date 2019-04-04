@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelAccordion discloseMany="false" id="pa1">
+    <af:showDetailItem id="pane1" text="Panel Label 1">
+      <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="auto" id="gr1">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+            <af:panelTabbed position="above" id="pt1" inlineStyle="width:735px;">
+              <af:showDetailItem id="tab1" text="Tab Label 1">
+                <af:table value="#{bindings.TblWorkStatusMView1.collectionModel}" var="row"
+                          rows="#{bindings.TblWorkStatusMView1.rangeSize}"
+                          emptyText="#{bindings.TblWorkStatusMView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TblWorkStatusMView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TblWorkStatusMView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TblWorkStatusMView1.rangeSize}"
+                          filterModel="#{bindings.TblWorkStatusMView1Query.queryDescriptor}"
+                          queryListener="#{bindings.TblWorkStatusMView1Query.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t1">
+                  <af:column sortProperty="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.label}"
+                             id="c1">
+                    <af:inputText value="#{row.bindings.WorkStatusMId.inputValue}"
+                                  label="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.label}"
+                                  required="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.mandatory}"
+                                  columns="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.tooltip}" id="it1">
+                      <f:validator binding="#{row.bindings.WorkStatusMId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusMView1.hints.WorkStatusMId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusMView1.hints.Dated.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusMView1.hints.Dated.label}" id="c2">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{bindings.TblWorkStatusMView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Dated.value}"
+                                    id="id1">
+                        <af:convertDateTime pattern="#{bindings.TblWorkStatusMView1.hints.Dated.format}"/>
+                      </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.Dated.inputValue}"
+                                  label="#{bindings.TblWorkStatusMView1.hints.Dated.label}"
+                                  required="#{bindings.TblWorkStatusMView1.hints.Dated.mandatory}"
+                                  columns="#{bindings.TblWorkStatusMView1.hints.Dated.displayWidth}"
+                                  shortDesc="#{bindings.TblWorkStatusMView1.hints.Dated.tooltip}" id="id2">
+                      <f:validator binding="#{row.bindings.Dated.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.TblWorkStatusMView1.hints.Dated.format}"/>
+                    </af:inputDate>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusMView1.hints.UserId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusMView1.hints.UserId.label}" id="c3">
+                    <af:inputText value="#{row.bindings.UserId.inputValue}"
+                                  label="#{bindings.TblWorkStatusMView1.hints.UserId.label}"
+                                  required="#{bindings.TblWorkStatusMView1.hints.UserId.mandatory}"
+                                  columns="#{bindings.TblWorkStatusMView1.hints.UserId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusMView1.hints.UserId.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusMView1.hints.UserId.tooltip}" id="it2">
+                      <f:validator binding="#{row.bindings.UserId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusMView1.hints.UserId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusMView1.hints.Remarks.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusMView1.hints.Remarks.label}" id="c4">
+                    <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                  label="#{bindings.TblWorkStatusMView1.hints.Remarks.label}"
+                                  required="#{bindings.TblWorkStatusMView1.hints.Remarks.mandatory}"
+                                  columns="#{bindings.TblWorkStatusMView1.hints.Remarks.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusMView1.hints.Remarks.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusMView1.hints.Remarks.tooltip}" id="it3">
+                      <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr2">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+            <af:panelGroupLayout id="pgl2">
+              <af:button text="button 1" id="b1"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr3">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr4">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+            <af:panelTabbed position="above" id="pt2" inlineStyle="width:813px;">
+              <af:showDetailItem id="tab2" text="Tab Label 2">
+                <af:table value="#{bindings.TblWorkStatusDView5.collectionModel}" var="row"
+                          rows="#{bindings.TblWorkStatusDView5.rangeSize}"
+                          emptyText="#{bindings.TblWorkStatusDView5.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TblWorkStatusDView5.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TblWorkStatusDView5.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TblWorkStatusDView5.rangeSize}"
+                          filterModel="#{bindings.TblWorkStatusDView5Query.queryDescriptor}"
+                          queryListener="#{bindings.TblWorkStatusDView5Query.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t2">
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.label}"
+                             id="c5">
+                    <af:inputText value="#{row.bindings.WorkStatusDId.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.tooltip}" id="it4">
+                      <f:validator binding="#{row.bindings.WorkStatusDId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusDView5.hints.WorkStatusDId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.label}"
+                             id="c6">
+                    <af:inputText value="#{row.bindings.WorkStatusMId.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.tooltip}" id="it5">
+                      <f:validator binding="#{row.bindings.WorkStatusMId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusDView5.hints.WorkStatusMId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.label}" id="c7">
+                    <af:inputText value="#{row.bindings.CoaL4Id.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.tooltip}" id="it6">
+                      <f:validator binding="#{row.bindings.CoaL4Id.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusDView5.hints.CoaL4Id.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.DeptId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.DeptId.label}" id="c8">
+                    <af:inputText value="#{row.bindings.DeptId.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.DeptId.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.DeptId.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.DeptId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.DeptId.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.DeptId.tooltip}" id="it7">
+                      <f:validator binding="#{row.bindings.DeptId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusDView5.hints.DeptId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.label}"
+                             id="c9">
+                    <af:inputText value="#{row.bindings.WorkTodoId.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.tooltip}" id="it8">
+                      <f:validator binding="#{row.bindings.WorkTodoId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusDView5.hints.WorkTodoId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.WorkDetail.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.WorkDetail.label}"
+                             id="c10">
+                    <af:inputText value="#{row.bindings.WorkDetail.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.WorkDetail.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.WorkDetail.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.WorkDetail.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.WorkDetail.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.WorkDetail.tooltip}" id="it9">
+                      <f:validator binding="#{row.bindings.WorkDetail.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkStatusDView5.hints.WorkingHours.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkStatusDView5.hints.WorkingHours.label}"
+                             id="c11">
+                    <af:inputText value="#{row.bindings.WorkingHours.inputValue}"
+                                  label="#{bindings.TblWorkStatusDView5.hints.WorkingHours.label}"
+                                  required="#{bindings.TblWorkStatusDView5.hints.WorkingHours.mandatory}"
+                                  columns="#{bindings.TblWorkStatusDView5.hints.WorkingHours.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkStatusDView5.hints.WorkingHours.precision}"
+                                  shortDesc="#{bindings.TblWorkStatusDView5.hints.WorkingHours.tooltip}" id="it10">
+                      <f:validator binding="#{row.bindings.WorkingHours.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkStatusDView5.hints.WorkingHours.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+            <af:panelGroupLayout id="pgl3">
+              <af:button text="button 2" id="b2"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</ui:composition>

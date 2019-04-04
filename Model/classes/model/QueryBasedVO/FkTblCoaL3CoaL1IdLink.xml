@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkTblCoaL3CoaL1IdLink"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <ViewLinkDefEnd
+    Name="TblCoaL1View"
+    Cardinality="1"
+    Source="true"
+    Owner="model.QueryBasedVO.TblCoaL1View">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TblCoaL1View"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.QueryBasedVO.TblCoaL1View.CoaL1Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="TblCoaL3View"
+    Cardinality="-1"
+    Owner="model.QueryBasedVO.TblCoaL3View">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TblCoaL3View"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.QueryBasedVO.TblCoaL3View.CoaL1Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

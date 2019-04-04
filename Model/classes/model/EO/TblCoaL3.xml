@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TblCoaL3"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TBL_COA_L3"
+  AliasName="TblCoaL3"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CoaL3Id"
+    IsNotNull="true"
+    ColumnName="COA_L3_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TBL_COA_L3"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CoaL2Id"
+    IsNotNull="true"
+    ColumnName="COA_L2_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TBL_COA_L3"/>
+  <Attribute
+    Name="CoaL3Name"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="COA_L3_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TBL_COA_L3">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Ast"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="AST"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="TBL_COA_L3"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="TblCoaL2"
+    Association="model.EO.FkTblCoaL3CoaL2IdAssoc"
+    AssociationEnd="model.EO.FkTblCoaL3CoaL2IdAssoc.TblCoaL2"
+    AssociationOtherEnd="model.EO.FkTblCoaL3CoaL2IdAssoc.TblCoaL3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TblCoaL4"
+    Association="model.EO.FkTblCoaL4CoaL3IdAssoc"
+    AssociationEnd="model.EO.FkTblCoaL4CoaL3IdAssoc.TblCoaL4"
+    AssociationOtherEnd="model.EO.FkTblCoaL4CoaL3IdAssoc.TblCoaL3"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PkCoaL3Id"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_COA_L3_ID"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblCoaL3.CoaL3Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PkUkCoaL3Name">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PK_UK_COA_L3_NAME"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblCoaL3.CoaL3Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkTblCoaL3CoaL1Id">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_COA_L1_ID"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TBL_COA_L3_COA_L1_ID"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblCoaL3.CoaL1Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkTblCoaL3CoaL2Id">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_COA_L2_ID"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TBL_COA_L3_COA_L2_ID"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblCoaL3.CoaL2Id"/>
+    </AttrArray>
+  </Key>
+</Entity>

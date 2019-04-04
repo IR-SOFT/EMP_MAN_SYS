@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TblCoaL2View"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="TblCoaL2"
+    Entity="model.EO.TblCoaL2"/>
+  <ViewAttribute
+    Name="CoaL2Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaL2Id"
+    EntityUsage="TblCoaL2"
+    AliasName="COA_L2_ID"/>
+  <ViewAttribute
+    Name="CoaL1Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaL1Id"
+    EntityUsage="TblCoaL2"
+    AliasName="COA_L1_ID"/>
+  <ViewAttribute
+    Name="CoaL2Name"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoaL2Name"
+    EntityUsage="TblCoaL2"
+    AliasName="COA_L2_NAME"/>
+  <ViewAttribute
+    Name="Ast"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Ast"
+    EntityUsage="TblCoaL2"
+    AliasName="AST"/>
+  <ViewLinkAccessor
+    Name="TblCoaL3View"
+    ViewLink="model.VO.FkTblCoaL3CoaL2IdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

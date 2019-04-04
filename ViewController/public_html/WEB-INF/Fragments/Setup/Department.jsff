@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelAccordion discloseMany="false" id="pa1">
+    <af:showDetailItem id="pane1" text="Panel Label 1">
+      <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="auto" id="gr1">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+            <af:panelTabbed position="above" id="pt1" inlineStyle="width:741px;">
+              <af:showDetailItem id="tab1" text="Tab Label 1">
+                <af:table value="#{bindings.TblDeptView1.collectionModel}" var="row"
+                          rows="#{bindings.TblDeptView1.rangeSize}"
+                          emptyText="#{bindings.TblDeptView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.TblDeptView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TblDeptView1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.TblDeptView1.rangeSize}"
+                          filterModel="#{bindings.TblDeptView1Query.queryDescriptor}"
+                          queryListener="#{bindings.TblDeptView1Query.processQuery}" filterVisible="true" varStatus="vs"
+                          id="t1" partialTriggers="::b1 ::b2 ::b3">
+                  <af:column sortProperty="#{bindings.TblDeptView1.hints.DeptId.name}" filterable="true" sortable="true"
+                             headerText="#{bindings.TblDeptView1.hints.DeptId.label}" id="c1">
+                    <af:inputText value="#{row.bindings.DeptId.inputValue}"
+                                  label="#{bindings.TblDeptView1.hints.DeptId.label}"
+                                  required="#{bindings.TblDeptView1.hints.DeptId.mandatory}"
+                                  columns="#{bindings.TblDeptView1.hints.DeptId.displayWidth}"
+                                  maximumLength="#{bindings.TblDeptView1.hints.DeptId.precision}"
+                                  shortDesc="#{bindings.TblDeptView1.hints.DeptId.tooltip}" id="it1">
+                      <f:validator binding="#{row.bindings.DeptId.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.TblDeptView1.hints.DeptId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDeptView1.hints.DeptName.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDeptView1.hints.DeptName.label}" id="c2">
+                    <af:inputText value="#{row.bindings.DeptName.inputValue}"
+                                  label="#{bindings.TblDeptView1.hints.DeptName.label}"
+                                  required="#{bindings.TblDeptView1.hints.DeptName.mandatory}"
+                                  columns="#{bindings.TblDeptView1.hints.DeptName.displayWidth}"
+                                  maximumLength="#{bindings.TblDeptView1.hints.DeptName.precision}"
+                                  shortDesc="#{bindings.TblDeptView1.hints.DeptName.tooltip}" id="it2">
+                      <f:validator binding="#{row.bindings.DeptName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDeptView1.hints.Ast.name}" filterable="true" sortable="true"
+                             headerText="#{bindings.TblDeptView1.hints.Ast.label}" id="c3">
+                    <af:inputText value="#{row.bindings.Ast.inputValue}"
+                                  label="#{bindings.TblDeptView1.hints.Ast.label}"
+                                  required="#{bindings.TblDeptView1.hints.Ast.mandatory}"
+                                  columns="#{bindings.TblDeptView1.hints.Ast.displayWidth}"
+                                  maximumLength="#{bindings.TblDeptView1.hints.Ast.precision}"
+                                  shortDesc="#{bindings.TblDeptView1.hints.Ast.tooltip}" id="it3">
+                      <f:validator binding="#{row.bindings.Ast.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr2">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+            <af:panelGroupLayout id="pgl2">
+              <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+              <af:button actionListener="#{bindings.Execute.execute}" text="Execute"
+                         disabled="#{!bindings.Execute.enabled}" id="b2"/>
+              <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                         disabled="#{!bindings.Delete.enabled}" id="b3"/>
+              <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                         disabled="#{!bindings.Commit.enabled}" id="b4"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr3">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr4">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+            <af:panelTabbed position="above" id="pt2" inlineStyle="width:745px;">
+              <af:showDetailItem id="tab2" text="Tab Label 2">
+                <af:table value="#{bindings.TblWorkTodoView3.collectionModel}" var="row"
+                          rows="#{bindings.TblWorkTodoView3.rangeSize}"
+                          emptyText="#{bindings.TblWorkTodoView3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TblWorkTodoView3.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TblWorkTodoView3.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TblWorkTodoView3.rangeSize}"
+                          filterModel="#{bindings.TblWorkTodoView3Query.queryDescriptor}"
+                          queryListener="#{bindings.TblWorkTodoView3Query.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t2" partialTriggers="::b5 ::b6 ::b7">
+                  <af:column sortProperty="#{bindings.TblWorkTodoView3.hints.WorkTodoId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkTodoView3.hints.WorkTodoId.label}" id="c4">
+                    <af:inputText value="#{row.bindings.WorkTodoId.inputValue}"
+                                  label="#{bindings.TblWorkTodoView3.hints.WorkTodoId.label}"
+                                  required="#{bindings.TblWorkTodoView3.hints.WorkTodoId.mandatory}"
+                                  columns="#{bindings.TblWorkTodoView3.hints.WorkTodoId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkTodoView3.hints.WorkTodoId.precision}"
+                                  shortDesc="#{bindings.TblWorkTodoView3.hints.WorkTodoId.tooltip}" id="it4">
+                      <f:validator binding="#{row.bindings.WorkTodoId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkTodoView3.hints.WorkTodoId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkTodoView3.hints.DeptId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkTodoView3.hints.DeptId.label}" id="c5">
+                    <af:inputText value="#{row.bindings.DeptId.inputValue}"
+                                  label="#{bindings.TblWorkTodoView3.hints.DeptId.label}"
+                                  required="#{bindings.TblWorkTodoView3.hints.DeptId.mandatory}"
+                                  columns="#{bindings.TblWorkTodoView3.hints.DeptId.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkTodoView3.hints.DeptId.precision}"
+                                  shortDesc="#{bindings.TblWorkTodoView3.hints.DeptId.tooltip}" id="it5">
+                      <f:validator binding="#{row.bindings.DeptId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblWorkTodoView3.hints.DeptId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.label}" id="c6">
+                    <af:inputText value="#{row.bindings.WorkTodoDesc.inputValue}"
+                                  label="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.label}"
+                                  required="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.mandatory}"
+                                  columns="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.precision}"
+                                  shortDesc="#{bindings.TblWorkTodoView3.hints.WorkTodoDesc.tooltip}" id="it6">
+                      <f:validator binding="#{row.bindings.WorkTodoDesc.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblWorkTodoView3.hints.Ast.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblWorkTodoView3.hints.Ast.label}" id="c7">
+                    <af:inputText value="#{row.bindings.Ast.inputValue}"
+                                  label="#{bindings.TblWorkTodoView3.hints.Ast.label}"
+                                  required="#{bindings.TblWorkTodoView3.hints.Ast.mandatory}"
+                                  columns="#{bindings.TblWorkTodoView3.hints.Ast.displayWidth}"
+                                  maximumLength="#{bindings.TblWorkTodoView3.hints.Ast.precision}"
+                                  shortDesc="#{bindings.TblWorkTodoView3.hints.Ast.tooltip}" id="it7">
+                      <f:validator binding="#{row.bindings.Ast.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+            <af:panelGroupLayout id="pgl3">
+              <af:button actionListener="#{bindings.CreateInsert1.execute}" text="CreateInsert1"
+                         disabled="#{!bindings.CreateInsert1.enabled}" id="b5"/>
+              <af:button actionListener="#{bindings.Execute1.execute}" text="Execute1"
+                         disabled="#{!bindings.Execute1.enabled}" id="b6"/>
+              <af:button actionListener="#{bindings.Delete1.execute}" text="Delete1"
+                         disabled="#{!bindings.Delete1.enabled}" id="b7"/>
+              <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                         disabled="#{!bindings.Commit.enabled}" id="b8"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</ui:composition>

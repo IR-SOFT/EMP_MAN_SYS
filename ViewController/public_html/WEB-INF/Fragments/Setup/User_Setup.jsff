@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelAccordion discloseMany="false" id="pa1" inlineStyle="height:811px; width:1050px;">
+    <af:showDetailItem id="pane1" text="User Setup">
+      <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="auto" id="gr1">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+            <af:table value="#{bindings.TblUserView1.collectionModel}" var="row"
+                      rows="#{bindings.TblUserView1.rangeSize}"
+                      emptyText="#{bindings.TblUserView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.TblUserView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.TblUserView1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.TblUserView1.rangeSize}"
+                      filterModel="#{bindings.TblUserView1Query.queryDescriptor}"
+                      queryListener="#{bindings.TblUserView1Query.processQuery}" filterVisible="true" varStatus="vs"
+                      id="t1" partialTriggers="::b1 ::b2 ::b3">
+              <af:column sortProperty="#{bindings.TblUserView1.hints.UserId.name}" filterable="true" sortable="true"
+                         headerText="User ID" id="c1">
+                <af:inputText value="#{row.bindings.UserId.inputValue}"
+                              label="#{bindings.TblUserView1.hints.UserId.label}"
+                              required="#{bindings.TblUserView1.hints.UserId.mandatory}"
+                              columns="#{bindings.TblUserView1.hints.UserId.displayWidth}"
+                              maximumLength="#{bindings.TblUserView1.hints.UserId.precision}"
+                              shortDesc="#{bindings.TblUserView1.hints.UserId.tooltip}" id="it1">
+                  <f:validator binding="#{row.bindings.UserId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.TblUserView1.hints.UserId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.TblUserView1.hints.UserName.name}" filterable="true" sortable="true"
+                         headerText="User Name" id="c2">
+                <af:inputText value="#{row.bindings.UserName.inputValue}"
+                              label="#{bindings.TblUserView1.hints.UserName.label}"
+                              required="#{bindings.TblUserView1.hints.UserName.mandatory}"
+                              columns="#{bindings.TblUserView1.hints.UserName.displayWidth}"
+                              maximumLength="#{bindings.TblUserView1.hints.UserName.precision}"
+                              shortDesc="#{bindings.TblUserView1.hints.UserName.tooltip}" id="it2">
+                  <f:validator binding="#{row.bindings.UserName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.TblUserView1.hints.UserPwd.name}" filterable="true" sortable="true"
+                         headerText="User Password" id="c3">
+                <af:inputText value="#{row.bindings.UserPwd.inputValue}"
+                              label="#{bindings.TblUserView1.hints.UserPwd.label}"
+                              required="#{bindings.TblUserView1.hints.UserPwd.mandatory}"
+                              columns="#{bindings.TblUserView1.hints.UserPwd.displayWidth}"
+                              maximumLength="#{bindings.TblUserView1.hints.UserPwd.precision}"
+                              shortDesc="#{bindings.TblUserView1.hints.UserPwd.tooltip}" id="it3">
+                  <f:validator binding="#{row.bindings.UserPwd.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.TblUserView1.hints.Ast.name}" filterable="true" sortable="true"
+                         headerText="Active" id="c4">
+                <af:inputText value="#{row.bindings.Ast.inputValue}" label="#{bindings.TblUserView1.hints.Ast.label}"
+                              required="#{bindings.TblUserView1.hints.Ast.mandatory}"
+                              columns="#{bindings.TblUserView1.hints.Ast.displayWidth}"
+                              maximumLength="#{bindings.TblUserView1.hints.Ast.precision}"
+                              shortDesc="#{bindings.TblUserView1.hints.Ast.tooltip}" id="it4">
+                  <f:validator binding="#{row.bindings.Ast.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr2">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+            <af:panelGroupLayout id="pgl2">
+              <af:spacer width="100" height="10" id="s4"/>
+              <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+              <af:spacer width="5" height="10" id="s1"/>
+              <af:button actionListener="#{bindings.Execute.execute}" text="Edit"
+                         disabled="#{!bindings.Execute.enabled}" id="b2"/>
+              <af:spacer width="5" height="10" id="s2"/>
+              <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                         disabled="#{!bindings.Delete.enabled}" id="b3"/>
+              <af:spacer width="5" height="10" id="s3"/>
+              <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                         disabled="#{!bindings.Commit.enabled}" id="b4"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:showDetailItem>
+  </af:panelAccordion>
+</ui:composition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Work_StatusPageDef"
+                Package="Fragments.Setup">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TblWorkStatusMView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="TblWorkStatusMView1Iterator"/>
+    <searchRegion Binds="TblWorkStatusMView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblWorkStatusMView1Query"/>
+    <iterator Binds="TblWorkStatusDView5" RangeSize="25" DataControl="AppModuleDataControl"
+              id="TblWorkStatusDView5Iterator"/>
+    <searchRegion Binds="TblWorkStatusDView5Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblWorkStatusDView5Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TblWorkStatusMView1Iterator" id="TblWorkStatusMView1">
+      <nodeDefinition DefName="model.VO.TblWorkStatusMView" Name="TblWorkStatusMView10">
+        <AttrNames>
+          <Item Value="WorkStatusMId"/>
+          <Item Value="Dated"/>
+          <Item Value="UserId"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="TblWorkStatusDView5Iterator" id="TblWorkStatusDView5">
+      <nodeDefinition DefName="model.VO.TblWorkStatusDView" Name="TblWorkStatusDView50">
+        <AttrNames>
+          <Item Value="WorkStatusDId"/>
+          <Item Value="WorkStatusMId"/>
+          <Item Value="CoaL4Id"/>
+          <Item Value="DeptId"/>
+          <Item Value="WorkTodoId"/>
+          <Item Value="WorkDetail"/>
+          <Item Value="WorkingHours"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

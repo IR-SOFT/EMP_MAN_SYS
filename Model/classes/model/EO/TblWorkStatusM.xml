@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TblWorkStatusM"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TBL_WORK_STATUS_M"
+  AliasName="TblWorkStatusM"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="WorkStatusMId"
+    IsNotNull="true"
+    ColumnName="WORK_STATUS_M_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TBL_WORK_STATUS_M"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Dated"
+    IsNotNull="true"
+    ColumnName="DATED"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="TBL_WORK_STATUS_M"/>
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    ColumnName="USER_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TBL_WORK_STATUS_M"/>
+  <Attribute
+    Name="Remarks"
+    Precision="300"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TBL_WORK_STATUS_M">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="TblWorkStatusD"
+    Association="model.EO.FkTblWorkStatusDWorkStatusMIdAssoc"
+    AssociationEnd="model.EO.FkTblWorkStatusDWorkStatusMIdAssoc.TblWorkStatusD"
+    AssociationOtherEnd="model.EO.FkTblWorkStatusDWorkStatusMIdAssoc.TblWorkStatusM"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TblUser"
+    Association="model.EO.FkTblWorkStatusMUserIdAssoc"
+    AssociationEnd="model.EO.FkTblWorkStatusMUserIdAssoc.TblUser"
+    AssociationOtherEnd="model.EO.FkTblWorkStatusMUserIdAssoc.TblWorkStatusM"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkWorkStatusMId"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_WORK_STATUS_M_ID"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblWorkStatusM.WorkStatusMId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkTblWorkStatusMUserId">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_USER_ID"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TBL_WORK_STATUS_M_USER_ID"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblWorkStatusM.UserId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="ChartOfAccountPageDef"
+                Package="Fragments.Setup">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TblCoaL1View1" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL1View1Iterator"/>
+    <searchRegion Binds="TblCoaL1View1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL1View1Query"/>
+    <iterator Binds="TblCoaL2View3" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL2View3Iterator"/>
+    <searchRegion Binds="TblCoaL2View3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL2View3Query"/>
+    <iterator Binds="TblCoaL3View4" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL3View4Iterator"/>
+    <searchRegion Binds="TblCoaL3View4Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL3View4Query"/>
+    <iterator Binds="TblCoaL4View5" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL4View5Iterator"/>
+    <searchRegion Binds="TblCoaL4View5Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL4View5Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TblCoaL1View1Iterator" id="TblCoaL1View1">
+      <nodeDefinition DefName="model.VO.TblCoaL1View" Name="TblCoaL1View10">
+        <AttrNames>
+          <Item Value="CoaL1Id"/>
+          <Item Value="CoaL1Name"/>
+          <Item Value="Ast"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="TblCoaL2View3Iterator" id="TblCoaL2View3">
+      <nodeDefinition DefName="model.VO.TblCoaL2View" Name="TblCoaL2View30">
+        <AttrNames>
+          <Item Value="CoaL2Id"/>
+          <Item Value="CoaL1Id"/>
+          <Item Value="CoaL2Name"/>
+          <Item Value="Ast"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="TblCoaL3View4Iterator" id="TblCoaL3View4">
+      <nodeDefinition DefName="model.VO.TblCoaL3View" Name="TblCoaL3View40">
+        <AttrNames>
+          <Item Value="CoaL3Id"/>
+          <Item Value="CoaL2Id"/>
+          <Item Value="CoaL3Name"/>
+          <Item Value="Ast"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="TblCoaL4View5Iterator" id="TblCoaL4View5">
+      <nodeDefinition DefName="model.VO.TblCoaL4View" Name="TblCoaL4View50">
+        <AttrNames>
+          <Item Value="CoaL4Id"/>
+          <Item Value="CoaL3Id"/>
+          <Item Value="CoaL4Name"/>
+          <Item Value="Ast"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

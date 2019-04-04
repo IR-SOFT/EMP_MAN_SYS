@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkTblWorkStatusDWorkStatusMIdAssoc"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="TblWorkStatusM"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EO.TblWorkStatusM">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TblWorkStatusM"/>
+      <Attr Name="_foreignKey" Value="model.EO.TblWorkStatusM.PkWorkStatusMId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblWorkStatusM.WorkStatusMId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="TblWorkStatusD"
+    Cardinality="-1"
+    Owner="model.EO.TblWorkStatusD">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TblWorkStatusD"/>
+      <Attr Name="_foreignKey" Value="model.EO.TblWorkStatusD.FkTblWorkStatusDWorkStatusMId"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.TblWorkStatusD.WorkStatusMId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

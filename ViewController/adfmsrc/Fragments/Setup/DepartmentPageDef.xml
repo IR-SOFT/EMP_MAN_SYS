@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="DepartmentPageDef"
+                Package="Fragments.Setup">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TblDeptView1" RangeSize="25" DataControl="AppModuleDataControl" id="TblDeptView1Iterator"/>
+    <searchRegion Binds="TblDeptView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblDeptView1Query"/>
+    <iterator Binds="TblWorkTodoView3" RangeSize="25" DataControl="AppModuleDataControl" id="TblWorkTodoView3Iterator"/>
+    <searchRegion Binds="TblWorkTodoView3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblWorkTodoView3Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TblDeptView1Iterator" id="TblDeptView1">
+      <nodeDefinition DefName="model.VO.TblDeptView" Name="TblDeptView10">
+        <AttrNames>
+          <Item Value="DeptId"/>
+          <Item Value="DeptName"/>
+          <Item Value="Ast"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TblDeptView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="TblDeptView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblDeptView1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="TblWorkTodoView3Iterator" id="TblWorkTodoView3">
+      <nodeDefinition DefName="model.VO.TblWorkTodoView" Name="TblWorkTodoView30">
+        <AttrNames>
+          <Item Value="WorkTodoId"/>
+          <Item Value="DeptId"/>
+          <Item Value="WorkTodoDesc"/>
+          <Item Value="Ast"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TblWorkTodoView3Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="TblWorkTodoView3Iterator" id="Execute1" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblWorkTodoView3Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>
