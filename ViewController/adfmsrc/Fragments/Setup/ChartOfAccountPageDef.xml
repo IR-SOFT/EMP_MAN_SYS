@@ -4,16 +4,16 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="TblCoaL1View1" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL1View1Iterator"/>
+    <iterator Binds="TblCoaL1View1" RangeSize="8" DataControl="AppModuleDataControl" id="TblCoaL1View1Iterator"/>
     <searchRegion Binds="TblCoaL1View1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL1View1Query"/>
-    <iterator Binds="TblCoaL2View3" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL2View3Iterator"/>
+    <iterator Binds="TblCoaL2View3" RangeSize="8" DataControl="AppModuleDataControl" id="TblCoaL2View3Iterator"/>
     <searchRegion Binds="TblCoaL2View3Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL2View3Query"/>
-    <iterator Binds="TblCoaL3View4" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL3View4Iterator"/>
+    <iterator Binds="TblCoaL3View4" RangeSize="8" DataControl="AppModuleDataControl" id="TblCoaL3View4Iterator"/>
     <searchRegion Binds="TblCoaL3View4Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL3View4Query"/>
-    <iterator Binds="TblCoaL4View5" RangeSize="25" DataControl="AppModuleDataControl" id="TblCoaL4View5Iterator"/>
+    <iterator Binds="TblCoaL4View5" RangeSize="8" DataControl="AppModuleDataControl" id="TblCoaL4View5Iterator"/>
     <searchRegion Binds="TblCoaL4View5Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblCoaL4View5Query"/>
   </executables>
@@ -57,5 +57,19 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="TblCoaL1View1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="TblCoaL1View1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblCoaL1View1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="TblCoaL2View3Iterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="TblCoaL2View3Iterator" id="Execute1" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblCoaL2View3Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="TblCoaL3View4Iterator" id="CreateInsert2" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="TblCoaL3View4Iterator" id="Execute2" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblCoaL3View4Iterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="TblCoaL4View5Iterator" id="CreateInsert3" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="TblCoaL4View5Iterator" id="Execute3" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblCoaL4View5Iterator" id="Delete3" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

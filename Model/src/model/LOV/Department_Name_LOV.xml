@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Department_Name_LOV"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  SelectList="TblDept.AST, 
+       TblDept.DEPT_ID, 
+       TblDept.DEPT_NAME"
+  FromList="TBL_DEPT TblDept"
+  Where="AST='Y'"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.LOV.Department_Name_LOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="TblDept"
+    Entity="model.EO.TblDept"/>
+  <ViewAttribute
+    Name="Ast"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Ast"
+    EntityUsage="TblDept"
+    AliasName="AST"/>
+  <ViewAttribute
+    Name="DeptId"
+    PrecisionRule="true"
+    EntityAttrName="DeptId"
+    EntityUsage="TblDept"
+    AliasName="DEPT_ID"/>
+  <ViewAttribute
+    Name="DeptName"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DeptName"
+    EntityUsage="TblDept"
+    AliasName="DEPT_NAME"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="DeptId"
-    IsNotNull="true"
     ColumnName="DEPT_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="TBL_DEPT"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="DeptName"
     IsUnique="true"
@@ -43,7 +44,8 @@
     ColumnType="CHAR"
     TableName="TBL_DEPT"
     RetrievedOnUpdate="true"
-    RetrievedOnInsert="true">
+    RetrievedOnInsert="true"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

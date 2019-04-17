@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="CoaL1Id"
-    IsNotNull="true"
     ColumnName="COA_L1_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="TBL_COA_L1"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="CoaL1Name"
     IsUnique="true"
@@ -43,7 +44,8 @@
     ColumnType="CHAR"
     TableName="TBL_COA_L1"
     RetrievedOnUpdate="true"
-    RetrievedOnInsert="true">
+    RetrievedOnInsert="true"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

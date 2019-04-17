@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="Active_Status_LOV1"
+    ViewObjectName="model.LOV.Active_Status_LOV"/>
+  <ViewUsage
+    Name="User_Name_LOV1"
+    ViewObjectName="model.LOV.User_Name_LOV"/>
+  <ViewUsage
+    Name="Department_Name_LOV1"
+    ViewObjectName="model.LOV.Department_Name_LOV"/>
+  <ViewUsage
+    Name="Work_To_Do_LOV1"
+    ViewObjectName="model.LOV.Work_To_Do_LOV"/>
+  <ViewUsage
+    Name="L4_Name_LOV1"
+    ViewObjectName="model.LOV.L4_Name_LOV"/>
+</AppModule>

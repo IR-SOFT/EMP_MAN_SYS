@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="UserId"
-    IsNotNull="true"
     ColumnName="USER_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="TBL_USER"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="UserName"
     IsUnique="true"
@@ -56,7 +57,8 @@
     ColumnType="CHAR"
     TableName="TBL_USER"
     RetrievedOnUpdate="true"
-    RetrievedOnInsert="true">
+    RetrievedOnInsert="true"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

@@ -4,8 +4,28 @@
   <af:panelAccordion discloseMany="false" id="pa1" inlineStyle="height:811px; width:1050px;">
     <af:showDetailItem id="pane1" text="User Setup">
       <af:panelGridLayout id="pgl1">
+      <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                               <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                            halign="end" valign="middle">
+                       <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                  disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b1"
+                                  icon="#{resource['images:cancel.png']}" iconPosition="top">
+                           <af:resetActionListener/>
+                       </af:button>
+                       <af:spacer width="10" height="10" id="s9"/>
+                                                       <af:button actionListener="#{bindings.Commit.execute}"
+                                                                  text="Save All" disabled="#{!bindings.Commit.enabled}"
+                                                                  id="b10"
+
+                                                                  icon="#{resource['images:save.png']}"
+                                                                  iconPosition="top"/>
+                       <af:spacer width="10" height="10" id="s1"/>
+                   </af:gridCell>
+                                           </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" id="gr1">
           <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+           <af:panelTabbed position="above" id="pt1" inlineStyle="width:690px;">
+              <af:showDetailItem id="tab1" text="User Setup">
             <af:table value="#{bindings.TblUserView1.collectionModel}" var="row"
                       rows="#{bindings.TblUserView1.rangeSize}"
                       emptyText="#{bindings.TblUserView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -14,21 +34,38 @@
                       fetchSize="#{bindings.TblUserView1.rangeSize}"
                       filterModel="#{bindings.TblUserView1Query.queryDescriptor}"
                       queryListener="#{bindings.TblUserView1Query.processQuery}" filterVisible="true" varStatus="vs"
-                      id="t1" partialTriggers="::b1 ::b2 ::b3">
-              <af:column sortProperty="#{bindings.TblUserView1.hints.UserId.name}" filterable="true" sortable="true"
-                         headerText="User ID" id="c1">
+                      id="t1" partialTriggers="::b1 ::b2 ::b3 ::b5" width="681"
+                      scrollPolicy="page" autoHeightRows="0">
+              <af:column sortProperty="#{bindings.TblUserView1.hints.UserId.name}" 
+                         filterable="true" sortable="true"
+                         headerText="User ID" 
+                         id="c1" width="80" align="center">
+                          <f:facet name="filter">
+                                                    <af:inputText
+                                                    value="#{vs.filterCriteria.UserId}"
+                                                                       id="it12" placeholder="Search ID">
+                                                   </af:inputText>
+                                              </f:facet>
                 <af:inputText value="#{row.bindings.UserId.inputValue}"
                               label="#{bindings.TblUserView1.hints.UserId.label}"
                               required="#{bindings.TblUserView1.hints.UserId.mandatory}"
                               columns="#{bindings.TblUserView1.hints.UserId.displayWidth}"
                               maximumLength="#{bindings.TblUserView1.hints.UserId.precision}"
-                              shortDesc="#{bindings.TblUserView1.hints.UserId.tooltip}" id="it1">
+                              shortDesc="#{bindings.TblUserView1.hints.UserId.tooltip}" 
+                              id="it1" readOnly="true"
+                              contentStyle="text-align: center;">
                   <f:validator binding="#{row.bindings.UserId.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.TblUserView1.hints.UserId.format}"/>
                 </af:inputText>
               </af:column>
               <af:column sortProperty="#{bindings.TblUserView1.hints.UserName.name}" filterable="true" sortable="true"
-                         headerText="User Name" id="c2">
+                         headerText="User" id="c2" width="250">
+                         <f:facet name="filter">
+                                                    <af:inputText
+                                                    value="#{vs.filterCriteria.UserName}"
+                                                                       id="it5" placeholder="Search User">
+                                                   </af:inputText>
+                                              </f:facet>
                 <af:inputText value="#{row.bindings.UserName.inputValue}"
                               label="#{bindings.TblUserView1.hints.UserName.label}"
                               required="#{bindings.TblUserView1.hints.UserName.mandatory}"
@@ -39,7 +76,13 @@
                 </af:inputText>
               </af:column>
               <af:column sortProperty="#{bindings.TblUserView1.hints.UserPwd.name}" filterable="true" sortable="true"
-                         headerText="User Password" id="c3">
+                         headerText="Password" id="c3" width="250">
+                          <f:facet name="filter">
+                                                    <af:inputText
+                                                    value="#{vs.filterCriteria.UserPwd}"
+                                                                       id="it6" placeholder="Search Password">
+                                                   </af:inputText>
+                                              </f:facet>
                 <af:inputText value="#{row.bindings.UserPwd.inputValue}"
                               label="#{bindings.TblUserView1.hints.UserPwd.label}"
                               required="#{bindings.TblUserView1.hints.UserPwd.mandatory}"
@@ -49,39 +92,50 @@
                   <f:validator binding="#{row.bindings.UserPwd.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column sortProperty="#{bindings.TblUserView1.hints.Ast.name}" filterable="true" sortable="true"
-                         headerText="Active" id="c4">
-                <af:inputText value="#{row.bindings.Ast.inputValue}" label="#{bindings.TblUserView1.hints.Ast.label}"
-                              required="#{bindings.TblUserView1.hints.Ast.mandatory}"
-                              columns="#{bindings.TblUserView1.hints.Ast.displayWidth}"
-                              maximumLength="#{bindings.TblUserView1.hints.Ast.precision}"
-                              shortDesc="#{bindings.TblUserView1.hints.Ast.tooltip}" id="it4">
-                  <f:validator binding="#{row.bindings.Ast.validator}"/>
-                </af:inputText>
-              </af:column>
-            </af:table>
+                  <af:column sortProperty="#{bindings.TblUserView1.hints.Ast.name}" 
+                             filterable="true" sortable="true"
+                             headerText="Active" 
+                             id="c4" width="80">
+                         <f:facet name="filter">
+                                                    <af:inputText
+                                                    value="#{vs.filterCriteria.Ast}"
+                                                                       id="it7" placeholder="Search Status">
+                                                   </af:inputText>
+                                              </f:facet>
+                    <af:selectOneChoice value="#{row.bindings.Ast.inputValue}" label="#{row.bindings.Ast.label}"
+                                        required="#{bindings.TblUserView1.hints.Ast.mandatory}"
+                                        shortDesc="#{bindings.TblUserView1.hints.Ast.tooltip}" id="soc1">
+                      <f:selectItems value="#{row.bindings.Ast.items}" id="si1"/>
+                      <f:validator binding="#{row.bindings.Ast.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:table>
+          </af:showDetailItem>
+            </af:panelTabbed>
           </af:gridCell>
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" id="gr2">
           <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
             <af:panelGroupLayout id="pgl2">
-              <af:spacer width="100" height="10" id="s4"/>
+              <af:spacer width="230" height="10" id="s4"/>
               <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
-                         disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
-              <af:spacer width="5" height="10" id="s1"/>
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b5" icon="#{resource['images:add.png']}"/>
+              <af:spacer width="5" height="10" id="s3"/>
               <af:button actionListener="#{bindings.Execute.execute}" text="Edit"
-                         disabled="#{!bindings.Execute.enabled}" id="b2"/>
+                         disabled="#{!bindings.Execute.enabled}" id="b2" icon="#{resource['images:edit.png']}"/>
               <af:spacer width="5" height="10" id="s2"/>
               <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                         disabled="#{!bindings.Delete.enabled}" id="b3"/>
-              <af:spacer width="5" height="10" id="s3"/>
-              <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                         disabled="#{!bindings.Commit.enabled}" id="b4"/>
+                         disabled="#{!bindings.Delete.enabled}" id="b3" icon="#{resource['images:delete.png']}"
+                         immediate="true" />
             </af:panelGroupLayout>
           </af:gridCell>
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+           
+               
+              
+          </af:gridCell>
         </af:gridRow>
       </af:panelGridLayout>
     </af:showDetailItem>

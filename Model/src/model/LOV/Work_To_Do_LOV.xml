@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Work_To_Do_LOV"
+  Version="12.2.1.11.57"
+  InheritPersonalization="merge"
+  SelectList="TblWorkTodo.AST, 
+       TblWorkTodo.WORK_TODO_ID, 
+       TblWorkTodo.WORK_TODO_DESC"
+  FromList="TBL_WORK_TODO TblWorkTodo"
+  Where="AST='Y'"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.LOV.Work_To_Do_LOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="TblWorkTodo"
+    Entity="model.EO.TblWorkTodo"/>
+  <ViewAttribute
+    Name="Ast"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Ast"
+    EntityUsage="TblWorkTodo"
+    AliasName="AST"/>
+  <ViewAttribute
+    Name="WorkTodoId"
+    PrecisionRule="true"
+    EntityAttrName="WorkTodoId"
+    EntityUsage="TblWorkTodo"
+    AliasName="WORK_TODO_ID"/>
+  <ViewAttribute
+    Name="WorkTodoDesc"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="WorkTodoDesc"
+    EntityUsage="TblWorkTodo"
+    AliasName="WORK_TODO_DESC"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

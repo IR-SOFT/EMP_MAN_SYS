@@ -4,11 +4,11 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="TblWorkStatusMView1" RangeSize="25" DataControl="AppModuleDataControl"
+    <iterator Binds="TblWorkStatusMView1" RangeSize="8" DataControl="AppModuleDataControl"
               id="TblWorkStatusMView1Iterator"/>
     <searchRegion Binds="TblWorkStatusMView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblWorkStatusMView1Query"/>
-    <iterator Binds="TblWorkStatusDView5" RangeSize="25" DataControl="AppModuleDataControl"
+    <iterator Binds="TblWorkStatusDView5" RangeSize="8" DataControl="AppModuleDataControl"
               id="TblWorkStatusDView5Iterator"/>
     <searchRegion Binds="TblWorkStatusDView5Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblWorkStatusDView5Query"/>
@@ -37,5 +37,18 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="TblWorkStatusMView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="TblWorkStatusMView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblWorkStatusMView1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="TblWorkStatusDView5Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="TblWorkStatusDView5Iterator" id="Execute1" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action IterBinding="TblWorkStatusDView5Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
   </bindings>
 </pageDefinition>

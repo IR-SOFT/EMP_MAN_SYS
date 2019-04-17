@@ -21,8 +21,8 @@
                         <af:gridCell marginStart="5px" width="80%" halign="end" valign="bottom" marginEnd="5px"
                                      id="pt_gc3">
                             <af:button text="Back to Home" id="pt_b2"
-                                       icon="#{resource['images:back_to_home.png']}"
-                                       destination="http://127.0.0.1:7101/ViewController/faces/Main_Pages/Dashboard.jsf"/>
+                                       destination="http://127.0.0.1:7101/ViewController/faces/Main_Pages/Dashboard.jsf"
+                                       icon="#{resource['images:back_to_home.png']}"/>
                             <af:spacer width="10" height="10" id="pt_s3"/>
                             <af:button text="Logout" id="pt_b1"
                                        icon="#{resource['images:logout.png']}"/>
