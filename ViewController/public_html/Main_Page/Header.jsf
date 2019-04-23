@@ -20,12 +20,16 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="80%" halign="end" valign="bottom" marginEnd="5px"
                                      id="pt_gc3">
-                            <af:button text="Back to Home" id="pt_b2"
+                                     <af:outputLabel value="HELLO" id="pt_ol2" inlineStyle="font-size:small;"/>
+                            <af:outputLabel value="${sessionScope.sessUName}" id="pt_ol1"
+                                            inlineStyle="font-variant-caps:all-petite-caps; font-size:x-large; font-weight:bolder;"/>
+                            <!--<af:button text="Back to Home" id="pt_b2"
                                        destination="http://127.0.0.1:7101/ViewController/faces/Main_Pages/Dashboard.jsf"
-                                       icon="#{resource['images:back_to_home.png']}"/>
+                                       icon="#{resource['images:back_to_home.png']}"/>-->
                             <af:spacer width="10" height="10" id="pt_s3"/>
                             <af:button text="Logout" id="pt_b1"
-                                       icon="#{resource['images:logout.png']}"/>
+                                       icon="#{resource['images:logout.png']}"
+                                       action="#{backingBeanScope.backing_Main_Page_Login.logout_action}"/>
                             <af:spacer width="20" height="10" id="pt_s1"/>
                         </af:gridCell>
                     </af:gridRow>
@@ -42,4 +46,5 @@
             </af:gridCell>
         </af:gridRow>
     </af:panelGridLayout>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:backing_Main_Page_Login-->
 </af:pageTemplateDef>
