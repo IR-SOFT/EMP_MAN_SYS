@@ -11,21 +11,20 @@
         <af:showDetailItem id="sdi1" text="Setup">
             <af:spacer width="190" height="10" id="s1"/>
             <af:button id="b5" inlineStyle="width:190px;" text="User Setup"
-                       icon="#{resource['images:farmer_registration.png']}"
                        actionListener="#{viewScope.MainPage_Sidebar_Bean.User_Click}"/>
             <af:spacer width="190" height="10" id="s2"/>
             <af:button id="pt_b3" inlineStyle="width:190px;" text="Department Setup"
-                       icon="#{resource['images:farmer_registration.png']}"
                        actionListener="#{viewScope.MainPage_Sidebar_Bean.Department_Click}"/>
             <af:spacer width="190" height="10" id="pt_s1"/>
             <af:button id="pt_b1" inlineStyle="width:190px;" text="Chart of Account"
-                       icon="#{resource['images:farmer_registration.png']}"
                        actionListener="#{viewScope.MainPage_Sidebar_Bean.ChartOfAccount_Click}"/>
             <af:spacer width="190" height="10" id="pt_s2"/>
             <af:button id="pt_b2" inlineStyle="width:190px;" text="Work Status"
-                       icon="#{resource['images:farmer_registration.png']}"
                        actionListener="#{viewScope.MainPage_Sidebar_Bean.WorkStatus_Click}"/>
             <af:spacer width="190" height="10" id="pt_s4"/>
+            <af:button id="pt_b4" inlineStyle="width:190px;" text="Dispatch_Detail"
+                       actionListener="#{viewScope.MainPage_Sidebar_Bean.DispatchDetail_Click}"/>
+            <af:spacer width="190" height="10" id="pt_s3"/>
         </af:showDetailItem>
     </af:panelAccordion>
 </af:pageTemplateDef>

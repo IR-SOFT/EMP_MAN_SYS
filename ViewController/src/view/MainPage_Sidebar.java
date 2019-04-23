@@ -39,4 +39,9 @@ public class MainPage_Sidebar implements Serializable {
         // Add event code here...
         setDynamicTaskFlowId("/WEB-INF/TaskFlows/Setup/WorkStatus_Taskflow.xml#WorkStatus_Taskflow");
     }
+
+    public void DispatchDetail_Click(ActionEvent actionEvent) {
+        // Add event code here...
+        setDynamicTaskFlowId("/WEB-INF/TaskFlows/Setup/Dispatch_Detail_Taskflow.xml#Dispatch_Detail_Taskflow");
+    }
 }
