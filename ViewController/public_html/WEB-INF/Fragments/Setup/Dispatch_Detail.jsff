@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelAccordion discloseMany="false" id="pa1">
+    <af:showDetailItem id="pane1" text="Panel Label 1">
+      <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="auto" id="gr1">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="end" valign="middle">
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b1"
+                                   icon="#{resource['images:cancel.png']}" iconPosition="top">
+                            <af:resetActionListener/>
+                        </af:button>
+                        <af:spacer width="10" height="10" id="s9"/>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Save All"
+                                   disabled="#{!bindings.Commit.enabled}" id="b10" icon="#{resource['images:save.png']}"
+                                   iconPosition="top"/>
+                        <af:spacer width="10" height="10" id="s1"/>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr2">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+            <af:panelTabbed position="above" id="pt1" inlineStyle="width:1261px;">
+              <af:showDetailItem id="tab1" text="Dispatch Detail">
+                <af:table value="#{bindings.TblDispatchDetView1.collectionModel}" var="row"
+                          rows="#{bindings.TblDispatchDetView1.rangeSize}"
+                          emptyText="#{bindings.TblDispatchDetView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.TblDispatchDetView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.TblDispatchDetView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.TblDispatchDetView1.rangeSize}"
+                          filterModel="#{bindings.TblDispatchDetView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.TblDispatchDetView1Query.processQuery}" varStatus="vs" id="t1"
+                          partialTriggers="::b1 ::b2 ::b3">
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetId.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetId.label}"
+                             id="c1">
+                    <af:inputText value="#{row.bindings.DispatchDetId.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetId.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetId.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetId.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetId.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetId.tooltip}" id="it1">
+                      <f:validator binding="#{row.bindings.DispatchDetId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.TblDispatchDetView1.hints.DispatchDetId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.label}"
+                             id="c2">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{bindings.TblDispatchDetView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DispatchDetDate.value}"
+                                    id="id1">
+                        <af:convertDateTime pattern="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.format}"/>
+                      </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.DispatchDetDate.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.displayWidth}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.tooltip}" id="id2">
+                      <f:validator binding="#{row.bindings.DispatchDetDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.format}"/>
+                    </af:inputDate>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.label}"
+                             id="c3">
+                    <af:inputText value="#{row.bindings.DispatchDetFrom.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.tooltip}" id="it2">
+                      <f:validator binding="#{row.bindings.DispatchDetFrom.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.label}"
+                             id="c4">
+                    <af:inputText value="#{row.bindings.DispatchDetTo.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.tooltip}" id="it3">
+                      <f:validator binding="#{row.bindings.DispatchDetTo.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.label}" id="c5">
+                    <af:inputText value="#{row.bindings.DispatchDetSender.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.tooltip}" id="it4">
+                      <f:validator binding="#{row.bindings.DispatchDetSender.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.label}" id="c6">
+                    <af:inputText value="#{row.bindings.DispatchDetSendedTo.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.tooltip}"
+                                  id="it5">
+                      <f:validator binding="#{row.bindings.DispatchDetSendedTo.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.label}" id="c7">
+                    <af:inputText value="#{row.bindings.DispatchDetReceivedBy.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.tooltip}"
+                                  id="it6">
+                      <f:validator binding="#{row.bindings.DispatchDetReceivedBy.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.label}" id="c8">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{bindings.TblDispatchDetView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DispatchDetReceivedDate.value}"
+                                    id="id3">
+                        <af:convertDateTime pattern="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.format}"/>
+                      </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.DispatchDetReceivedDate.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.displayWidth}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.tooltip}"
+                                  id="id4">
+                      <f:validator binding="#{row.bindings.DispatchDetReceivedDate.validator}"/>
+                      <af:convertDateTime pattern="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.format}"/>
+                    </af:inputDate>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.label}" id="c9">
+                    <af:inputText value="#{row.bindings.DispatchDetCourier.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.tooltip}" id="it7">
+                      <f:validator binding="#{row.bindings.DispatchDetCourier.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.label}"
+                             id="c10">
+                    <af:inputText value="#{row.bindings.DispatchDetDesc.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.tooltip}" id="it8">
+                      <f:validator binding="#{row.bindings.DispatchDetDesc.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetType.name}" filterable="true"
+                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetType.label}"
+                             id="c11">
+                    <af:inputText value="#{row.bindings.DispatchDetType.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetType.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetType.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetType.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetType.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetType.tooltip}" id="it9">
+                      <f:validator binding="#{row.bindings.DispatchDetType.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.label}" id="c12">
+                    <af:inputText value="#{row.bindings.DispatchDetDispNo.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.tooltip}" id="it10">
+                      <f:validator binding="#{row.bindings.DispatchDetDispNo.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.label}" id="c13">
+                    <af:inputText value="#{row.bindings.DispatchDetCourNo.inputValue}"
+                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.label}"
+                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.mandatory}"
+                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.displayWidth}"
+                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.precision}"
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.tooltip}" id="it11">
+                      <f:validator binding="#{row.bindings.DispatchDetCourNo.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr3">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+            <af:panelGroupLayout id="pgl2">
+              <af:spacer width="400" height="10" id="s4"/>
+              <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b4"
+                         icon="#{resource['images:add.png']}"/>
+              <af:spacer width="5" height="10" id="s2"/>
+              <af:button actionListener="#{bindings.Execute.execute}" text="Edit"
+                         disabled="#{!bindings.Execute.enabled}" id="b2"
+                         icon="#{resource['images:edit.png']}"/>
+              <af:spacer width="5" height="10" id="s3"/>
+              <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                         disabled="#{!bindings.Delete.enabled}" id="b3"
+                         icon="#{resource['images:delete.png']}"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" id="gr4">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"/>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+          <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"/>
+        </af:gridRow>
+        
+      </af:panelGridLayout>
+    </af:showDetailItem>
+  </af:panelAccordion>
+  
+</ui:composition>

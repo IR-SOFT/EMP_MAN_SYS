@@ -133,6 +133,12 @@
   <ViewUsage
     Name="TblWorkStatusDView10"
     ViewObjectName="model.QueryBasedVO.TblWorkStatusDView"/>
+  <ViewUsage
+    Name="TblDispatchDetView1"
+    ViewObjectName="model.VO.TblDispatchDetView"/>
+  <ViewUsage
+    Name="TblDispatchDetView1_1"
+    ViewObjectName="model.QueryBasedVO.TblDispatchDetView1"/>
   <ViewLinkUsage
     Name="FkTblCoaL2CoaL1IdLink1"
     ViewLinkObjectName="model.VO.FkTblCoaL2CoaL1IdLink"

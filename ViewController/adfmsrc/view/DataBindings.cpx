@@ -12,6 +12,7 @@
     <page path="/WEB-INF/Fragments/Setup/Department.jsff" usageId="view_DepartmentPageDef"/>
     <page path="/WEB-INF/Fragments/Setup/ChartOfAccount.jsff" usageId="view_ChartOfAccountPageDef"/>
     <page path="/WEB-INF/Fragments/Setup/Work_Status.jsff" usageId="view_Work_StatusPageDef"/>
+    <page path="/WEB-INF/Fragments/Setup/Dispatch_Detail.jsff" usageId="view_Dispatch_DetailPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_MainPagePageDef" path="Main_Page.MainPagePageDef"/>
@@ -19,6 +20,7 @@
     <page id="view_DepartmentPageDef" path="Fragments.Setup.DepartmentPageDef"/>
     <page id="view_ChartOfAccountPageDef" path="Fragments.Setup.ChartOfAccountPageDef"/>
     <page id="view_Work_StatusPageDef" path="Fragments.Setup.Work_StatusPageDef"/>
+    <page id="view_Dispatch_DetailPageDef" path="Fragments.Setup.Dispatch_DetailPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

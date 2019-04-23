@@ -1,0 +1,7 @@
+//Groovy Scripts for model.VO.TblWorkStatusDView
+
+package model.VO
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+

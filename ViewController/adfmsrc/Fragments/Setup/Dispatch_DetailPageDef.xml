@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="Dispatch_DetailPageDef"
+                Package="Fragments.Setup">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TblDispatchDetView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="TblDispatchDetView1Iterator"/>
+    <searchRegion Binds="TblDispatchDetView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblDispatchDetView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TblDispatchDetView1Iterator" id="TblDispatchDetView1">
+      <nodeDefinition DefName="model.VO.TblDispatchDetView" Name="TblDispatchDetView10">
+        <AttrNames>
+          <Item Value="DispatchDetId"/>
+          <Item Value="DispatchDetDate"/>
+          <Item Value="DispatchDetFrom"/>
+          <Item Value="DispatchDetTo"/>
+          <Item Value="DispatchDetSender"/>
+          <Item Value="DispatchDetSendedTo"/>
+          <Item Value="DispatchDetReceivedBy"/>
+          <Item Value="DispatchDetReceivedDate"/>
+          <Item Value="DispatchDetCourier"/>
+          <Item Value="DispatchDetDesc"/>
+          <Item Value="DispatchDetType"/>
+          <Item Value="DispatchDetDispNo"/>
+          <Item Value="DispatchDetCourNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TblDispatchDetView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="TblDispatchDetView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="TblDispatchDetView1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>
