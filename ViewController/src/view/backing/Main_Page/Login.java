@@ -29,7 +29,7 @@ public class Login {
     // generating static variables to use in different scopes
     private static String user_id;
     private static String page_name;
-    private static String sessUName;
+    private static String sessUName = null;
 
 
     private RichForm f1;
