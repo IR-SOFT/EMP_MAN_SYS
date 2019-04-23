@@ -137,7 +137,7 @@
         </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" id="gr6">
           <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
-            <af:panelTabbed position="above" id="pt2" inlineStyle="width:1261px;">
+            <af:panelTabbed position="above" id="pt2" inlineStyle="width:1030px;">
               <af:showDetailItem id="tab2" text="Work Status Detail">
                 <af:table value="#{bindings.TblWorkStatusDView5.collectionModel}" var="row"
                           rows="#{bindings.TblWorkStatusDView5.rangeSize}"

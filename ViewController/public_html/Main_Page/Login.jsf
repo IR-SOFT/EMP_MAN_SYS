@@ -45,22 +45,24 @@
                     <af:gridCell marginStart="5px" width="34%" id="gc11"
                                  binding="#{backingBeanScope.backing_Main_Page_Login.gc11}" halign="center"
                                  valign="middle">
-                        <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_Main_Page_Login.pgl2}">
+                        <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_Main_Page_Login.pgl2}"
+                                             layout="horizontal">
                             <af:spacer width="10" height="10" id="s2"
                                        binding="#{backingBeanScope.backing_Main_Page_Login.s2}"/>
                             <af:image id="i2" binding="#{backingBeanScope.backing_Main_Page_Login.i2}"
                                       source="#{resource['images:useer_loogin.png']}"/>
-                            <af:inputText label="Label 1" id="it1"
+                            <af:inputText label="Username" id="it1"
                                           binding="#{backingBeanScope.backing_Main_Page_Login.it1}"/>
                         </af:panelGroupLayout>
                         <af:spacer width="10" height="10" id="s3"
                                    binding="#{backingBeanScope.backing_Main_Page_Login.s3}"/>
-                        <af:panelGroupLayout id="pgl3" binding="#{backingBeanScope.backing_Main_Page_Login.pgl3}">
+                        <af:panelGroupLayout id="pgl3" binding="#{backingBeanScope.backing_Main_Page_Login.pgl3}"
+                                             layout="horizontal">
                             <af:spacer width="10" height="10" id="s4"
                                        binding="#{backingBeanScope.backing_Main_Page_Login.s4}"/>
                             <af:image id="i3" binding="#{backingBeanScope.backing_Main_Page_Login.i3}"
                                       source="#{resource['images:password_login.png']}"/>
-                            <af:inputText label="Label 2" id="it2"
+                            <af:inputText label="Password" id="it2"
                                           binding="#{backingBeanScope.backing_Main_Page_Login.it2}"/>
                         </af:panelGroupLayout>
                     </af:gridCell>
