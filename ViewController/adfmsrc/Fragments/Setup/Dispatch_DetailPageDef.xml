@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="TblDispatchDetView1" RangeSize="25" DataControl="AppModuleDataControl"
+    <iterator Binds="TblDispatchDetView1" RangeSize="8" DataControl="AppModuleDataControl"
               id="TblDispatchDetView1Iterator"/>
     <searchRegion Binds="TblDispatchDetView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TblDispatchDetView1Query"/>

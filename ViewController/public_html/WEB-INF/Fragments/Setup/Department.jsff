@@ -20,7 +20,7 @@
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
-                        <af:panelTabbed position="above" id="pt1" inlineStyle="width:382px; height: 135px;">
+                        <af:panelTabbed position="above" id="pt1" inlineStyle="width:398px; height:150px;">
                             <af:showDetailItem id="tab1" text="Department">
                                 <af:table value="#{bindings.TblDeptView1.collectionModel}" var="row"
                                           rows="#{bindings.TblDeptView1.rangeSize}"
@@ -31,8 +31,9 @@
                                           rowSelection="single" fetchSize="#{bindings.TblDeptView1.rangeSize}"
                                           filterModel="#{bindings.TblDeptView1Query.queryDescriptor}"
                                           queryListener="#{bindings.TblDeptView1Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers="::b1 ::b2 ::b3"
-                                          width="372" scrollPolicy="page" autoHeightRows="0">
+                                          filterVisible="true" varStatus="vs" id="t1"
+                                          partialTriggers="::b1 ::b2 ::b3 ::b8"
+                                          width="381" scrollPolicy="page" autoHeightRows="0">
                                     <af:column sortProperty="#{bindings.TblDeptView1.hints.DeptId.name}"
                                                filterable="true" sortable="true" headerText="Department ID" id="c1"
                                                width="80" align="center">
@@ -88,6 +89,9 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                 </af:table>
+                                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute.enabled}" id="b8"
+                                           icon="#{resource['images:refresh.png']}"/>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:gridCell>
@@ -95,7 +99,7 @@
                 <af:gridRow marginTop="5px" height="auto" id="gr2">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
                         <af:panelGroupLayout id="pgl2">
-                            <af:spacer width="80" height="10" id="s7"/>
+                            <af:spacer width="90" height="10" id="s7"/>
                             <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
                                        disabled="#{!bindings.CreateInsert.enabled}" id="b4"
                                        icon="#{resource['images:add.png']}"/>
@@ -127,7 +131,8 @@
                                           rowSelection="single" fetchSize="#{bindings.TblWorkTodoView3.rangeSize}"
                                           filterModel="#{bindings.TblWorkTodoView3Query.queryDescriptor}"
                                           queryListener="#{bindings.TblWorkTodoView3Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t2" partialTriggers="::b5 ::b6 ::b7"
+                                          filterVisible="true" varStatus="vs" id="t2"
+                                          partialTriggers="::b5 ::b6 ::b7 ::b9"
                                           width="427" scrollPolicy="page" autoHeightRows="0">
                                     <af:column sortProperty="#{bindings.TblWorkTodoView3.hints.WorkTodoId.name}"
                                                filterable="true" sortable="true" 
@@ -192,6 +197,9 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                 </af:table>
+                                <af:button actionListener="#{bindings.Execute1.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute1.enabled}" id="b9"
+                                           icon="#{resource['images:refresh.png']}"/>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:gridCell>

@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="Dispatch_Type_LOV1"
+    ViewObjectName="model.LOV.Dispatch_Type_LOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_DispatchDetType"
+    ListVOName="Dispatch_Type_LOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DispatchDetType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Type_DB"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Type_View"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="TblDispatchDet"
     Entity="model.EO.TblDispatchDet"/>
@@ -90,7 +112,15 @@
     PrecisionRule="true"
     EntityAttrName="DispatchDetType"
     EntityUsage="TblDispatchDet"
-    AliasName="DISPATCH_DET_TYPE"/>
+    AliasName="DISPATCH_DET_TYPE"
+    LOVName="LOV_DispatchDetType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DispatchDetDispNo"
     PrecisionRule="true"

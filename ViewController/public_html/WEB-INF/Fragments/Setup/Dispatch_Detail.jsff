@@ -31,24 +31,32 @@
                           rowSelection="single" fetchSize="#{bindings.TblDispatchDetView1.rangeSize}"
                           filterModel="#{bindings.TblDispatchDetView1Query.queryDescriptor}" filterVisible="true"
                           queryListener="#{bindings.TblDispatchDetView1Query.processQuery}" varStatus="vs" id="t1"
-                          partialTriggers="::b1 ::b2 ::b3">
+                          partialTriggers="::b1 ::b2 ::b3 ::b5"
+                          scrollPolicy="page" autoHeightRows="0">
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetId.name}" filterable="true"
-                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetId.label}"
-                             id="c1">
+                             sortable="true" headerText="Dispatch Detail ID"
+                             id="c1" width="60" align="center">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetId}" id="it12"
+                                                          placeholder="Search ID">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetId.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetId.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetId.mandatory}"
                                   columns="#{bindings.TblDispatchDetView1.hints.DispatchDetId.displayWidth}"
                                   maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetId.precision}"
-                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetId.tooltip}" id="it1">
+                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetId.tooltip}" 
+                                  id="it1" readOnly="true" 
+                                  contentStyle="text-align: center;">
                       <f:validator binding="#{row.bindings.DispatchDetId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.TblDispatchDetView1.hints.DispatchDetId.format}"/>
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.name}" filterable="true"
-                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetDate.label}"
-                             id="c2">
+                             sortable="true" headerText="Date"
+                             id="c2" width="100">
                     <f:facet name="filter">
                       <af:inputDate value="#{bindings.TblDispatchDetView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DispatchDetDate.value}"
                                     id="id1">
@@ -65,8 +73,13 @@
                     </af:inputDate>
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.name}" filterable="true"
-                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.label}"
-                             id="c3">
+                             sortable="true" headerText="Dispatch From "
+                             id="c3" width="100">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetFrom}" id="it13"
+                                                          placeholder="Search From">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetFrom.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetFrom.mandatory}"
@@ -77,8 +90,13 @@
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.name}" filterable="true"
-                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.label}"
-                             id="c4">
+                             sortable="true" headerText="Dispatch To"
+                             id="c4" width="100">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetTo}" id="it14"
+                                                          placeholder="Search To">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetTo.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetTo.mandatory}"
@@ -90,7 +108,12 @@
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.label}" id="c5">
+                             headerText="Sender" id="c5" width="100">
+                             <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetSender}" id="it15"
+                                                          placeholder="Search Sender">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetSender.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetSender.mandatory}"
@@ -102,7 +125,12 @@
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.label}" id="c6">
+                             headerText="Receiver" id="c6" width="100">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetSendedTo}" id="it16"
+                                                          placeholder="Search Receiver">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetSendedTo.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetSendedTo.mandatory}"
@@ -115,7 +143,12 @@
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.label}" id="c7">
+                             headerText="Recevied By" id="c7" width="100">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetReceivedBy}" id="it17"
+                                                          placeholder="Search Recevied By">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetReceivedBy.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedBy.mandatory}"
@@ -128,7 +161,7 @@
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetReceivedDate.label}" id="c8">
+                             headerText="Recevied Date" id="c8" width="100">
                     <f:facet name="filter">
                       <af:inputDate value="#{bindings.TblDispatchDetView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DispatchDetReceivedDate.value}"
                                     id="id3">
@@ -147,7 +180,12 @@
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.label}" id="c9">
+                             headerText="Courier" id="c9" width="100">
+                             <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetCourier}" id="it18"
+                                                          placeholder="Search Courier">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetCourier.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetCourier.mandatory}"
@@ -158,8 +196,13 @@
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.name}" filterable="true"
-                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.label}"
-                             id="c10">
+                             sortable="true" headerText="Description"
+                             id="c10" width="100">
+                             <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetDesc}" id="it19"
+                                                          placeholder="Search Description">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetDesc.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetDesc.mandatory}"
@@ -169,21 +212,33 @@
                       <f:validator binding="#{row.bindings.DispatchDetDesc.validator}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetType.name}" filterable="true"
-                             sortable="true" headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetType.label}"
-                             id="c11">
-                    <af:inputText value="#{row.bindings.DispatchDetType.inputValue}"
-                                  label="#{bindings.TblDispatchDetView1.hints.DispatchDetType.label}"
-                                  required="#{bindings.TblDispatchDetView1.hints.DispatchDetType.mandatory}"
-                                  columns="#{bindings.TblDispatchDetView1.hints.DispatchDetType.displayWidth}"
-                                  maximumLength="#{bindings.TblDispatchDetView1.hints.DispatchDetType.precision}"
-                                  shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetType.tooltip}" id="it9">
+                  <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetType.name}"
+                             filterable="true"  sortable="true" 
+                             headerText="Type"    
+                             id="c11" width="100">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetType}" id="it20"
+                                                          placeholder="Search Type">
+                                            </af:inputText>
+                                        </f:facet>
+                             
+                    <af:selectOneChoice value="#{row.bindings.DispatchDetType.inputValue}"
+                                        label="#{row.bindings.DispatchDetType.label}"
+                                        required="#{bindings.TblDispatchDetView1.hints.DispatchDetType.mandatory}"
+                                        shortDesc="#{bindings.TblDispatchDetView1.hints.DispatchDetType.tooltip}"
+                                        id="soc1">
+                      <f:selectItems value="#{row.bindings.DispatchDetType.items}" id="si1"/>
                       <f:validator binding="#{row.bindings.DispatchDetType.validator}"/>
-                    </af:inputText>
+                    </af:selectOneChoice>
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.label}" id="c12">
+                             headerText="Dispatch No." id="c12" width="100">
+                             <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetDispNo}" id="it21"
+                                                          placeholder="Search Dispatch No.">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetDispNo.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetDispNo.mandatory}"
@@ -195,7 +250,12 @@
                   </af:column>
                   <af:column sortProperty="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.name}"
                              filterable="true" sortable="true"
-                             headerText="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.label}" id="c13">
+                             headerText="Courier No." id="c13" width="100">
+                              <f:facet name="filter">
+                                            <af:inputText value="#{vs.filterCriteria.DispatchDetCourNo}" id="it22"
+                                                          placeholder="Search Courier No.">
+                                            </af:inputText>
+                                        </f:facet>
                     <af:inputText value="#{row.bindings.DispatchDetCourNo.inputValue}"
                                   label="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.label}"
                                   required="#{bindings.TblDispatchDetView1.hints.DispatchDetCourNo.mandatory}"
@@ -206,6 +266,8 @@
                     </af:inputText>
                   </af:column>
                 </af:table>
+                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                           disabled="#{!bindings.Execute.enabled}" id="b5" icon="#{resource['images:refresh.png']}"/>
               </af:showDetailItem>
             </af:panelTabbed>
           </af:gridCell>
@@ -213,7 +275,7 @@
         <af:gridRow marginTop="5px" height="auto" id="gr3">
           <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
             <af:panelGroupLayout id="pgl2">
-              <af:spacer width="400" height="10" id="s4"/>
+              <af:spacer width="410" height="10" id="s4"/>
               <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
                          disabled="#{!bindings.CreateInsert.enabled}" id="b4"
                          icon="#{resource['images:add.png']}"/>
@@ -224,7 +286,8 @@
               <af:spacer width="5" height="10" id="s3"/>
               <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                          disabled="#{!bindings.Delete.enabled}" id="b3"
-                         icon="#{resource['images:delete.png']}"/>
+                         icon="#{resource['images:delete.png']}"
+                         immediate="true"/>
             </af:panelGroupLayout>
           </af:gridCell>
         </af:gridRow>

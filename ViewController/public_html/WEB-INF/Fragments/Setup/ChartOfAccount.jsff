@@ -24,7 +24,7 @@
                                            </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
-                        <af:panelTabbed position="above" id="pt1" inlineStyle="width:387px; height:134px;">
+                        <af:panelTabbed position="above" id="pt1" inlineStyle="width:394px; height:150px;">
                             <af:showDetailItem id="tab1" text="Level-1">
                                 <af:table value="#{bindings.TblCoaL1View1.collectionModel}" var="row"
                                           rows="#{bindings.TblCoaL1View1.rangeSize}"
@@ -35,8 +35,8 @@
                                           rowSelection="single" fetchSize="#{bindings.TblCoaL1View1.rangeSize}"
                                           filterModel="#{bindings.TblCoaL1View1Query.queryDescriptor}"
                                           queryListener="#{bindings.TblCoaL1View1Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t1" width="373"
-                                          partialTriggers="::b1 ::b2 ::b3"
+                                          filterVisible="true" varStatus="vs" id="t1" width="377"
+                                          partialTriggers="::b1 ::b2 ::b3 ::b15"
                                           scrollPolicy="page" autoHeightRows="0">
                                     <af:column sortProperty="#{bindings.TblCoaL1View1.hints.CoaL1Id.name}"
                                                filterable="true" sortable="true" 
@@ -100,6 +100,9 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                 </af:table>
+                                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute.enabled}" id="b15"
+                                           icon="#{resource['images:refresh.png']}"/>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:gridCell>
@@ -128,7 +131,7 @@
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr13">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
-                        <af:panelTabbed position="above" id="pt4" inlineStyle="width:384px; height:132px;">
+                        <af:panelTabbed position="above" id="pt4" inlineStyle="width:394px; height:150px;">
                             <af:showDetailItem id="sdi3" text="Level-2">
                                 <af:table value="#{bindings.TblCoaL2View3.collectionModel}" var="row"
                                           rows="#{bindings.TblCoaL2View3.rangeSize}"
@@ -139,8 +142,8 @@
                                           rowSelection="single" fetchSize="#{bindings.TblCoaL2View3.rangeSize}"
                                           filterModel="#{bindings.TblCoaL2View3Query.queryDescriptor}"
                                           queryListener="#{bindings.TblCoaL2View3Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t2" width="373"
-                                          partialTriggers="::b8 ::b9 ::b10"
+                                          filterVisible="true" varStatus="vs" id="t2" width="377"
+                                          partialTriggers="::b8 ::b9 ::b10 ::b16"
                                           scrollPolicy="page" autoHeightRows="0">
                                     <af:column sortProperty="#{bindings.TblCoaL2View3.hints.CoaL2Id.name}"
                                                filterable="true" sortable="true"
@@ -204,6 +207,9 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                 </af:table>
+                                <af:button actionListener="#{bindings.Execute1.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute1.enabled}" id="b16"
+                                           icon="#{resource['images:refresh.png']}"/>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:gridCell>
@@ -232,7 +238,7 @@
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr7">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
-                        <af:panelTabbed position="above" id="pt2" inlineStyle="width:385px; height:130px;">
+                        <af:panelTabbed position="above" id="pt2" inlineStyle="width:393px; height:150px;">
                             <af:showDetailItem id="sdi1" text="Level-3">
                                 <af:table value="#{bindings.TblCoaL3View4.collectionModel}" var="row"
                                           rows="#{bindings.TblCoaL3View4.rangeSize}"
@@ -243,8 +249,8 @@
                                           rowSelection="single" fetchSize="#{bindings.TblCoaL3View4.rangeSize}"
                                           filterModel="#{bindings.TblCoaL3View4Query.queryDescriptor}"
                                           queryListener="#{bindings.TblCoaL3View4Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t3" width="373"
-                                          partialTriggers="::b7 ::b11 ::b12"
+                                          filterVisible="true" varStatus="vs" id="t3" width="380"
+                                          partialTriggers="::b7 ::b11 ::b12 ::b17"
                                           scrollPolicy="page" autoHeightRows="0">
                                     <af:column sortProperty="#{bindings.TblCoaL3View4.hints.CoaL3Id.name}"
                                                filterable="true" sortable="true"
@@ -309,6 +315,9 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                 </af:table>
+                                <af:button actionListener="#{bindings.Execute2.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute2.enabled}" id="b17"
+                                           icon="#{resource['images:refresh.png']}"/>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:gridCell>
@@ -337,7 +346,7 @@
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr10">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
-                        <af:panelTabbed position="above" id="pt3" inlineStyle="width:385px; height:130px;">
+                        <af:panelTabbed position="above" id="pt3" inlineStyle="width:393px; height:150px;">
                             <af:showDetailItem id="sdi2" text="Level-4">
                                 <af:table value="#{bindings.TblCoaL4View5.collectionModel}" var="row"
                                           rows="#{bindings.TblCoaL4View5.rangeSize}"
@@ -348,8 +357,8 @@
                                           rowSelection="single" fetchSize="#{bindings.TblCoaL4View5.rangeSize}"
                                           filterModel="#{bindings.TblCoaL4View5Query.queryDescriptor}"
                                           queryListener="#{bindings.TblCoaL4View5Query.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t4" width="374"
-                                          partialTriggers="::b6 ::b13 ::b14"
+                                          filterVisible="true" varStatus="vs" id="t4" width="378"
+                                          partialTriggers="::b6 ::b13 ::b14 ::b18"
                                           scrollPolicy="page" autoHeightRows="0">
                                     <af:column sortProperty="#{bindings.TblCoaL4View5.hints.CoaL4Id.name}"
                                                filterable="true" sortable="true"
@@ -413,6 +422,9 @@
                                         </af:selectOneChoice>
                                     </af:column>
                                 </af:table>
+                                <af:button actionListener="#{bindings.Execute3.execute}" text="Refresh"
+                                           disabled="#{!bindings.Execute3.enabled}" id="b18"
+                                           icon="#{resource['images:refresh.png']}"/>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:gridCell>

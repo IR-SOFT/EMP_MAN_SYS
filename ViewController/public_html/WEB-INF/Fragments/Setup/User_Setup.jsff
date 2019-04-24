@@ -24,7 +24,7 @@
                                            </af:gridRow>
         <af:gridRow marginTop="5px" height="auto" id="gr1">
           <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
-           <af:panelTabbed position="above" id="pt1" inlineStyle="width:690px;">
+           <af:panelTabbed position="above" id="pt1" inlineStyle="width:698px;">
               <af:showDetailItem id="tab1" text="User Setup">
             <af:table value="#{bindings.TblUserView1.collectionModel}" var="row"
                       rows="#{bindings.TblUserView1.rangeSize}"
@@ -34,7 +34,7 @@
                       fetchSize="#{bindings.TblUserView1.rangeSize}"
                       filterModel="#{bindings.TblUserView1Query.queryDescriptor}"
                       queryListener="#{bindings.TblUserView1Query.processQuery}" filterVisible="true" varStatus="vs"
-                      id="t1" partialTriggers="::b1 ::b2 ::b3 ::b5" width="681"
+                      id="t1" partialTriggers="::b1 ::b2 ::b3 ::b5 ::b4" width="685"
                       scrollPolicy="page" autoHeightRows="0">
               <af:column sortProperty="#{bindings.TblUserView1.hints.UserId.name}" 
                          filterable="true" sortable="true"
@@ -110,7 +110,9 @@
                     </af:selectOneChoice>
                   </af:column>
                 </af:table>
-          </af:showDetailItem>
+                <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                           disabled="#{!bindings.Execute.enabled}" id="b4" icon="#{resource['images:refresh.png']}"/>
+              </af:showDetailItem>
             </af:panelTabbed>
           </af:gridCell>
         </af:gridRow>

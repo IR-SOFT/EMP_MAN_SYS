@@ -22,4 +22,7 @@
   <ViewUsage
     Name="L4_Name_LOV1"
     ViewObjectName="model.LOV.L4_Name_LOV"/>
+  <ViewUsage
+    Name="Dispatch_Type_LOV1"
+    ViewObjectName="model.LOV.Dispatch_Type_LOV"/>
 </AppModule>
