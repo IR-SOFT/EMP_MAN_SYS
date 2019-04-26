@@ -262,7 +262,7 @@
                                         pattern="#{bindings.TblWorkStatusDView5.hints.WorkingHours.format}"/>
                     </af:inputText>
                     <f:facet name="footer">
-                      <af:panelLabelAndMessage label="#{bindings.Total_Hours.hints.label}" id="plam1">
+                      <af:panelLabelAndMessage label="Total" id="plam1">
                         <af:outputText value="#{bindings.Total_Hours.inputValue}"
                                        shortDesc="#{bindings.Total_Hours.hints.tooltip}" id="ot1">
                           <af:convertNumber groupingUsed="false" pattern="#{bindings.Total_Hours.format}"/>
