@@ -154,4 +154,19 @@
     EntityAttrName="WorkingHours"
     EntityUsage="TblWorkStatusD"
     AliasName="WORKING_HOURS"/>
+  <ViewAttribute
+    Name="Total_Hours"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="trusted"
+      CodeSourceName="TblWorkStatusDViewRow"/>
+  </ViewAttribute>
 </ViewObject>

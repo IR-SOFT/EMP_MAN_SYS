@@ -5,3 +5,10 @@ package model.VO
 import oracle.jbo.script.annotation.TransientValueExpression;
 
 
+
+@TransientValueExpression(attributeName="Total_Hours")
+def Total_Hours_ExpressionScript_Expression()
+{
+object.getRowSet().sum('WorkingHours != null ? WorkingHours : 0')
+}
+
