@@ -1,0 +1,12 @@
+//Groovy Scripts for model.VO.TblWorkStatusMView
+
+package model.VO
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="USERMID")
+def USERMID_VariableScript_Variable()
+{
+adf.context.current.sessionScope.get('sessUID')
+}
+

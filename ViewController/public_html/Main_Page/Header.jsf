@@ -29,7 +29,7 @@
                             <af:spacer width="10" height="10" id="pt_s3"/>
                             <af:button text="Logout" id="pt_b1"
                                        icon="#{resource['images:logout.png']}"
-                                       action="#{backingBeanScope.backing_Main_Page_Login.logout_action}"/>
+                                       action="#{backing_Main_Page_Login.logout_action}"/>
                             <af:spacer width="20" height="10" id="pt_s1"/>
                         </af:gridCell>
                     </af:gridRow>
